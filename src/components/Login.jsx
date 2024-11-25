@@ -10,14 +10,8 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/login', {
-                email,
-                password,
-            });
-
-            // Si la autenticación es exitosa, redirigimos al usuario a la lista de videos
-            localStorage.setItem('token', response.data.token); // Guardamos el token en el localStorage
-            navigate('/videoList'); // Redirigimos a la página de videos
+            await axios.post('http://localhost:5000/api/auth/login', { email, password }, { withCredentials: true }); // Agrega withCredentials
+            navigate('/videoList'); // Redirige después del login{
         } catch (error) {
             console.error('Error logging in:', error);
             alert('Error al iniciar sesión. Por favor verifica tus credenciales.');
