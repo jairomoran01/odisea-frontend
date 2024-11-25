@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './components/Login';
+import Register from './components/Register';
+import VideoList from './components/VideoList';
+import UploadVideo from './components/UploadVideo';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        {/* Ruta por defecto: Login */}
+        <Route path="/" element={<Login />} />
+        {/* Ruta por defecto: Login */}
+        <Route path="/login" element={<Login />} />
+        {/* Ruta para el registro */}
+        <Route path="/register" element={<Register />} />
+        {/* Ruta para la lista de videos */}
+        <Route path="/videoList" element={<VideoList />} />
+        {/* Ruta para subir videos */}
+        <Route path="/uploadVideo" element={<UploadVideo />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
