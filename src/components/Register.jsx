@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-
 
 const Register = () => {
     const [email, setEmail] = useState('');
@@ -14,7 +12,7 @@ const Register = () => {
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`${BACKEND_URL}api/auth/register`, {
+            await axios.post(`https://odisea-backendv1.vercel.app/api/auth/register`, {
                 email,
                 password,
                 name,

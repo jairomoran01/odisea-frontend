@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 const UploadVideo = () => {
     const [title, setTitle] = useState('');
@@ -17,7 +16,7 @@ const UploadVideo = () => {
         formData.append('video', file);
 
         try {
-            await axios.post(`${BACKEND_URL}/api/videos/upload`, formData, { withCredentials: true });
+            await axios.post(`https://odisea-backendv1.vercel.app/api/videos/upload`, formData, { withCredentials: true });
             alert('Video subido con éxito.');
             navigate('/videoList');
         } catch (error) {

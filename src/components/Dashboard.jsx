@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-
-
 const Dashboard = () => {
   const [videos, setVideos] = useState([]);
   const [search, setSearch] = useState('');
@@ -12,7 +9,7 @@ const Dashboard = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post(`${BACKEND_URL}/api/auth/logout`, { withCredentials: true });
+      await axios.post(`https://odisea-backendv1.vercel.app/api/auth/logout`, { withCredentials: true });
       navigate('/login');
     } catch (error) {
       console.error("Error al cerrar sesión", error);
@@ -22,7 +19,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const response = await axios.get(`${BACKEND_URL}/api/videos/all?q=${search}`, { withCredentials: true });
+        const response = await axios.get(`https://odisea-backendv1.vercel.app/api/videos/all?q=${search}`, { withCredentials: true });
         setVideos(response.data);
       } catch (error) {
         if (error.response && error.response.status === 401) {

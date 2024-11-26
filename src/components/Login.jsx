@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -11,7 +10,7 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`${BACKEND_URL}/api/auth/login`, { email, password }, { withCredentials: true });
+            await axios.post('https://odisea-backendv1.vercel.app/api/auth/login', { email, password }, { withCredentials: true });
             navigate('/videoList');
         } catch (error) {
             console.error('Error logging in:', error);
