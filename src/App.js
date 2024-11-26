@@ -4,6 +4,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import VideoList from './components/VideoList';
 import UploadVideo from './components/UploadVideo';
+import Dashboard from './components/Dashboard'; // Importa el componente Dashboard
 
 const App = () => {
   return (
@@ -21,6 +22,8 @@ const App = () => {
         <Route path="/videoList" element={<VideoList />} />
         {/* Ruta para subir videos */}
         <Route path="/uploadVideo" element={<UploadVideo />} />
+        <Route path="/dashboard" element={<Dashboard />} /> {/* Agrega la ruta para el Dashboard */}
+
       </Routes>
       </div>
       </div>

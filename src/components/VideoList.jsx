@@ -39,12 +39,20 @@ const VideoList = () => {
                 <div className="px-4 py-6 sm:px-0">
                     <h2 className="text-3xl font-extrabold text-gray-900 mb-6">Mis Videos</h2>
                     <div className="flex justify-between items-center mb-6">
-                        <button
-                            onClick={() => navigate('/uploadVideo')}
-                            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                        >
-                            Subir Nuevo Video
-                        </button>
+                        <div> {/* Agrupamos los botones */}
+                            <button
+                                onClick={() => navigate('/uploadVideo')}
+                                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mr-2" // Agregamos margen derecho
+                            >
+                                Subir Nuevo Video
+                            </button>
+                            <button  // Nuevo botón para el Dashboard
+                                onClick={() => navigate('/dashboard')}
+                                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                            >
+                                Ver Todos los Videos (Dashboard)
+                            </button>
+                        </div>
                         <div className="flex items-center">
                             <input
                                 type="text"
@@ -61,6 +69,8 @@ const VideoList = () => {
                             </button>
                         </div>
                     </div>
+
+
                     <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                         {videos.length > 0 ? (
                             videos.map((video) => (
@@ -90,4 +100,3 @@ const VideoList = () => {
 };
 
 export default VideoList;
-
